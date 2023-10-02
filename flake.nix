@@ -22,8 +22,9 @@
       docker_builder_deriv =
         pkgs.dockerTools.buildLayeredImage {
           name = "docker-cpp-builder";
-          tag = "v1";
-          contents = [ self.packages.${system}.gcc
+          tag = "v2";
+          contents = [ self.packages.${system}.gnumake
+                       self.packages.${system}.gcc
                        self.packages.${system}.binutils
                        self.packages.${system}.bash
                        # for /bin/tail,  assumed by github actions when invoking a docker contianer
@@ -41,6 +42,7 @@
 
         docker_builder = docker_builder_deriv;
 
+        gnumake = pkgs.gnumake;
         gcc = pkgs.gcc;
         binutils = pkgs.binutils;
         bash = pkgs.bash;
