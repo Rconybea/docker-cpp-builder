@@ -23,7 +23,8 @@
         pkgs.dockerTools.buildLayeredImage {
           name = "docker-cpp-builder";
           tag = "v2";
-          contents = [ self.packages.${system}.gnumake
+          contents = [ self.packages.${system}.git
+                       self.packages.${system}.gnumake
                        self.packages.${system}.gcc
                        self.packages.${system}.binutils
                        self.packages.${system}.bash
@@ -42,6 +43,7 @@
 
         docker_builder = docker_builder_deriv;
 
+        git = pkgs.git;
         gnumake = pkgs.gnumake;
         gcc = pkgs.gcc;
         binutils = pkgs.binutils;
