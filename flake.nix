@@ -24,6 +24,7 @@
           name = "docker-cpp-builder";
           tag = "v2";
           contents = [ self.packages.${system}.git
+                       self.packages.${system}.cacert
                        self.packages.${system}.gnumake
                        self.packages.${system}.gcc
                        self.packages.${system}.binutils
@@ -44,6 +45,7 @@
         docker_builder = docker_builder_deriv;
 
         git = pkgs.git;
+        cacert = pkgs.cacert;
         gnumake = pkgs.gnumake;
         gcc = pkgs.gcc;
         binutils = pkgs.binutils;
