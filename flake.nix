@@ -22,7 +22,7 @@
       docker_builder_deriv =
         pkgs.dockerTools.buildLayeredImage {
           name = "docker-cpp-builder";
-          tag = "v2";
+          tag = "v3";
           contents = [ self.packages.${system}.git
                        self.packages.${system}.cacert
                        self.packages.${system}.gnumake
